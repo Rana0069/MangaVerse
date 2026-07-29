@@ -133,13 +133,7 @@ fun MoreScreen(
                     onPreferenceClick = onClickSettings,
                 )
             }
-            item {
-                TextPreferenceWidget(
-                    title = stringResource(MR.strings.label_support_us),
-                    icon = Icons.Default.VolunteerActivism,
-                    onPreferenceClick = onClickSupport,
-                )
-            }
+            // Support Us hidden for MangaVerse
             item {
                 TextPreferenceWidget(
                     title = stringResource(MR.strings.pref_category_about),

@@ -1,86 +1,147 @@
-<div align="center">
+﻿# MangaVerse
 
-<a href="https://mihon.app">
-    <img src="./.github/assets/logo.png" alt="Mihon logo" title="Mihon logo" width="80"/>
-</a>
+<p align="center">
+  <img src="app/src/main/res/drawable-nodpi/ic_splash_logo.png" width="220" alt="MangaVerse Logo"/>
+</p>
 
-# Mihon [App](#)
+<p align="center">
+  <strong>A modern, open-source manga reader built for speed, beautiful design, and an exceptional reading experience.</strong>
+</p>
 
-### Full-featured reader
-Discover and read manga, webtoons, comics, and more – easier than ever on your Android device.
+<p align="center">
+  <img src="https://img.shields.io/badge/version-1.0-red?style=for-the-badge" alt="Version"/>
+  <img src="https://img.shields.io/badge/platform-Android-black?style=for-the-badge&logo=android" alt="Android"/>
+  <img src="https://img.shields.io/badge/kotlin-2.x-red?style=for-the-badge&logo=kotlin" alt="Kotlin"/>
+  <img src="https://img.shields.io/badge/license-Apache%202.0-white?style=for-the-badge" alt="License"/>
+</p>
 
-[![Discord server](https://img.shields.io/discord/1195734228319617024.svg?label=&labelColor=6A7EC2&color=7389D8&logo=discord&logoColor=FFFFFF)](https://discord.gg/mihon)
-[![GitHub downloads](https://img.shields.io/github/downloads/mihonapp/mihon/total?label=downloads&labelColor=27303D&color=0D1117&logo=github&logoColor=FFFFFF&style=flat)](https://mihon.app/download)
+---
 
-[![CI](https://img.shields.io/github/actions/workflow/status/mihonapp/mihon/build.yml?labelColor=27303D)](https://github.com/mihonapp/mihon/actions/workflows/build_push.yml)
-[![License: Apache-2.0](https://img.shields.io/github/license/mihonapp/mihon?labelColor=27303D&color=0877d2)](/LICENSE)
-[![Translation status](https://img.shields.io/weblate/progress/mihon?labelColor=27303D&color=946300)](https://hosted.weblate.org/engage/mihon/)
+## About
 
-## Download
+**MangaVerse** is a fork of [Mihon](https://github.com/mihonapp/mihon) — the continuation of Tachiyomi — rebranded and customised by **Rana** (Founder & Lead Developer).
 
-[![Mihon Stable](https://img.shields.io/github/release/mihonapp/mihon.svg?maxAge=3600&label=Stable&labelColor=06599d&color=043b69)](https://mihon.app/download)
-[![Mihon Beta](https://img.shields.io/github/v/release/mihonapp/mihon-preview.svg?maxAge=3600&label=Beta&labelColor=2c2c47&color=1c1c39)](https://mihon.app/download)
+It retains the full power of the Mihon extension ecosystem while adding a premium visual identity: a dark red-and-black theme, a cinematic two-phase launch screen, a bespoke About page, and a streamlined experience with unnecessary upstream UI removed.
 
-*Requires Android 8.0 or higher.*
+---
 
 ## Features
 
-<div align="left">
+- Full Mihon extension support — access thousands of manga sources
+- Custom red/black/white theme — premium Material 3 design language
+- Cinematic splash screen — two-phase animated logo to text launch sequence
+- Custom MangaVerse branding — logo, app icon, About screen, and more
+- No donation popups — Support Us section removed for a clean experience
+- All reading modes — paged, continuous, webtoon
+- Library management — categories, tracking, downloads
+- MangaDex + local source — works out of the box without extensions
 
-* Local reading of content.
-* A configurable reader with multiple viewers, reading directions and other settings.
-* Tracker support: [MangaBaka](https://mangabaka.org), [MyAnimeList](https://myanimelist.net/), [AniList](https://anilist.co/), [Kitsu](https://kitsu.app/), [MangaUpdates](https://mangaupdates.com), [Shikimori](https://shikimori.one), [Bangumi](https://bgm.tv/), and [Hikka](https://hikka.io/) support.
-* Categories to organize your library.
-* Light and dark themes.
-* Schedule updating your library for new chapters.
-* Create backups locally to read offline or to your desired cloud service.
-* Plus much more...
+---
 
-</div>
+## Tech Stack
 
-## Contributing
+| Layer | Technology |
+|-------|-----------|
+| Language | Kotlin |
+| UI | Jetpack Compose + Material 3 |
+| Navigation | Voyager |
+| Networking | OkHttp + Retrofit |
+| Image Loading | Coil |
+| DI | Injekt |
+| Database | SQLDelight |
+| Build | Gradle (Kotlin DSL) |
 
-[Code of conduct](./CODE_OF_CONDUCT.md) · [Contributing guide](./CONTRIBUTING.md)
+---
 
-Pull requests are welcome. For major changes, please open an issue first to discuss what you would like to change.
+## Getting Started
 
-Before reporting a new issue, take a look at the [FAQ](https://mihon.app/docs/faq/general), the [changelog](https://mihon.app/changelogs/) and the already opened [issues](https://github.com/mihonapp/mihon/issues); if you got any questions, join our [Discord server](https://discord.gg/mihon).
+### Prerequisites
 
+- Android Studio Hedgehog or newer
+- JDK 17+
+- Android SDK 26+
 
-### Repositories
+### Build
 
-[![mihonapp/website - GitHub](https://github-readme-stats.vercel.app/api/pin/?username=mihonapp&repo=website&bg_color=161B22&text_color=c9d1d9&title_color=0877d2&icon_color=0877d2&border_radius=8&hide_border=true&description_lines_count=2)](https://github.com/mihonapp/website/)
-[![mihonapp/bitmap.kt - GitHub](https://github-readme-stats.vercel.app/api/pin/?username=mihonapp&repo=bitmap.kt&bg_color=161B22&text_color=c9d1d9&title_color=0877d2&icon_color=0877d2&border_radius=8&hide_border=true&description_lines_count=2)](https://github.com/mihonapp/bitmap.kt/)
+```bash
+# Clone the repo
+git clone https://github.com/your-username/MangaVerse.git
+cd MangaVerse
 
-### Credits
+# Build debug APK
+./gradlew assembleDebug
 
-Thank you to all the people who have contributed!
+# APK will be at:
+# app/build/outputs/apk/debug/app-debug.apk
+```
 
-<a href="https://github.com/mihonapp/mihon/graphs/contributors">
-    <img src="https://contrib.rocks/image?repo=mihonapp/mihon" alt="Mihon app contributors" title="Mihon app contributors" width="800"/>
-</a>
+### Install
 
-### Disclaimer
+```bash
+adb install app/build/outputs/apk/debug/app-debug.apk
+```
 
-The developer(s) of this application does not have any affiliation with the content providers available, and this application hosts zero content.
+---
 
-### License
+## Project Structure
 
-<pre>
-Copyright © 2015 Javier Tomás
-Copyright © 2024 Mihon Open Source Project
+```
+MangaVerse/
+├── app/                          # Main application module
+│   └── src/main/
+│       ├── java/
+│       │   ├── eu/kanade/        # Core app (Mihon base)
+│       │   │   ├── presentation/ # Compose UI screens
+│       │   │   └── tachiyomi/    # App logic, services
+│       │   └── mihon/feature/    # Feature modules
+│       └── res/
+│           ├── drawable-nodpi/   # Splash artwork assets
+│           └── values/           # Themes and strings
+├── source-api/                   # Extension source API
+├── domain/                       # Domain models and use cases
+├── data/                         # Data layer (DB, network)
+└── i18n/                         # Localisation resources
+```
 
-Licensed under the Apache License, Version 2.0 (the "License");
-you may not use this file except in compliance with the License.
-You may obtain a copy of the License at
+---
 
-http://www.apache.org/licenses/LICENSE-2.0
+## Branding
 
-Unless required by applicable law or agreed to in writing, software
-distributed under the License is distributed on an "AS IS" BASIS,
-WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-See the License for the specific language governing permissions and
-limitations under the License.
-</pre>
+MangaVerse uses a custom red x black x white palette:
 
-</div>
+| Token | Hex | Usage |
+|-------|-----|-------|
+| MvRed | #D32F2F | Accents, badges, icons |
+| MvRedDim | #8B0000 | Gradients, shadows |
+| MvBlack | #0A0A0A | Card backgrounds |
+| MvWhite | #F5F5F5 | Primary text |
+
+---
+
+## Links
+
+| | |
+|--|--|
+| GitHub | https://github.com/placeholder |
+| Discord | https://discord.gg/placeholder |
+| Email | placeholder@example.com |
+
+---
+
+## Developer
+
+**Rana** — Founder & Lead Developer
+
+---
+
+## Credits and License
+
+MangaVerse is based on **[Mihon](https://github.com/mihonapp/mihon)**, which is itself the continuation of **Tachiyomi**.
+
+All original Mihon/Tachiyomi code is (c) their respective authors and contributors, licensed under the **Apache License 2.0**.
+
+MangaVerse-specific modifications by Rana are also released under the **Apache License 2.0**.
+
+See [LICENSE](LICENSE) for the full license text.
+
+> MangaVerse is not affiliated with or endorsed by the Mihon team.

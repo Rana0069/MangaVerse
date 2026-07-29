@@ -575,7 +575,9 @@
     <!--== Splash Theme ==-->
     <style name="Theme.Tachiyomi.SplashScreen" parent="Theme.SplashScreen">
         <item name="windowSplashScreenAnimatedIcon">@drawable/ic_mihon_splash</item>
-        <item name="windowSplashScreenBackground">@color/splash</item>
+        <item name="windowSplashScreenIconBackgroundColor">#000000</item>
+        <item name="windowSplashScreenBackground">#000000</item>
+        <item name="android:windowBackground">@drawable/ic_splash_background</item>
         <item name="postSplashScreenTheme">@style/Theme.Tachiyomi</item>
         <item name="android:statusBarColor">@android:color/transparent</item>
         <item name="android:navigationBarColor">@android:color/transparent</item>

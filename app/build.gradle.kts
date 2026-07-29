@@ -32,8 +32,8 @@ android {
     defaultConfig {
         applicationId = "com.rana.mangaverse"
 
-        versionCode = 26
-        versionName = "0.20.1"
+        versionCode = 1
+        versionName = "1.0"
 
         buildConfigField("String", "COMMIT_COUNT", "\"${getLatestCommitCount()}\"")
         buildConfigField("String", "COMMIT_SHA", "\"${getLatestCommitSha()}\"")
@@ -73,7 +73,6 @@ android {
 
     buildTypes {
         val debug = getByName("debug") {
-            applicationIdSuffix = ".dev"
             versionNameSuffix = "-${getLatestCommitCount()}"
             isPseudoLocalesEnabled = true
         }

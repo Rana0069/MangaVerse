@@ -1,0 +1,11 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<!-- windowBackground: shown INSTANTLY when the activity window opens, before Compose renders.
+     Pointing to the logo eliminates the black gap between system splash and Compose. -->
+<layer-list xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:drawable="@android:color/black" />
+    <item>
+        <bitmap
+            android:gravity="center"
+            android:src="@drawable/ic_splash_logo" />
+    </item>
+</layer-list>

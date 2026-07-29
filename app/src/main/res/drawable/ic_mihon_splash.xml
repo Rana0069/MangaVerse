@@ -1,8 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
-<layer-list xmlns:android="http://schemas.android.com/apk/res/android">
-    <item
-        android:width="72dp"
-        android:height="72dp"
-        android:drawable="@drawable/ic_mihon"
-        android:gravity="center" />
-</layer-list>
+<!-- Solid black icon matching windowSplashScreenBackground=#000000
+     This makes the system splash frame completely invisible (black on black)
+     so only our full-screen Compose poster is ever visible -->
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="108dp"
+    android:height="108dp"
+    android:viewportWidth="108"
+    android:viewportHeight="108">
+    <path
+        android:fillColor="#000000"
+        android:pathData="M0,0 L108,0 L108,108 L0,108 Z" />
+</vector>
