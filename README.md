@@ -122,9 +122,9 @@ MangaVerse uses a custom red x black x white palette:
 
 | | |
 |--|--|
-| GitHub | https://github.com/placeholder |
-| Discord | https://discord.gg/placeholder |
-| Email | placeholder@example.com |
+| GitHub | https://github.com/Rana0069 |
+| Discord | https://discord.gg/FBaNYNS4AK |
+| Email | ------------- |
 
 ---
 
