@@ -231,7 +231,6 @@ object AboutScreen : Screen() {
         onDiscordClick: () -> Unit,
         onEmailClick:   () -> Unit,
     ) {
-        val uriHandler = LocalUriHandler.current
         var visible by remember { mutableStateOf(false) }
         LaunchedEffect(Unit) { visible = true }
 
@@ -322,7 +321,7 @@ object AboutScreen : Screen() {
                             modifier = Modifier.fillMaxWidth().border(1.dp, MvBorder, RoundedCornerShape(12.dp)),
                         ) {
                             Text(
-                                text       = "MangaVerse is a modern manga reading platform built for speed, performance, and an immersive reading experience.",
+                                text       = "MangaVerse is a modern open-source manga reader built for speed, beautiful design, and an exceptional reading experience.",
                                 style      = MaterialTheme.typography.bodyMedium,
                                 color      = Color(0xFFCCCCCC),
                                 lineHeight = 22.sp,
@@ -337,28 +336,10 @@ object AboutScreen : Screen() {
                         Text(text = "LINKS", style = MaterialTheme.typography.labelSmall, color = MvSubtext, letterSpacing = 2.sp)
                         Spacer(Modifier.height(10.dp))
 
-                        Row(
-                            modifier = Modifier.fillMaxWidth(),
-                            horizontalArrangement = Arrangement.spacedBy(8.dp),
-                        ) {
+                        Row(horizontalArrangement = Arrangement.spacedBy(8.dp)) {
                             LinkChip(label = "GitHub",  icon = CustomIcons.Github,   onClick = onGitHubClick)
                             LinkChip(label = "Discord", icon = CustomIcons.Discord,  onClick = onDiscordClick)
-                            LinkChip(label = "Website", icon = Icons.Outlined.Public, onClick = { uriHandler.openUri("https://mangaverse.app") })
                             LinkChip(label = "Email",   icon = Icons.Filled.Email,   onClick = onEmailClick)
-                        }
-
-                        Spacer(Modifier.height(16.dp))
-
-                        Text(text = "SUPPORT", style = MaterialTheme.typography.labelSmall, color = MvSubtext, letterSpacing = 2.sp)
-                        Spacer(Modifier.height(10.dp))
-
-                        Row(
-                            modifier = Modifier.fillMaxWidth(),
-                            horizontalArrangement = Arrangement.spacedBy(8.dp),
-                        ) {
-                            LinkChip(label = "Report Bug", icon = Icons.Default.Email, onClick = { uriHandler.openUri("https://github.com/placeholder/issues") })
-                            LinkChip(label = "Request Feature", icon = Icons.Default.Email, onClick = { uriHandler.openUri("https://github.com/placeholder/discussions") })
-                            LinkChip(label = "Donate", icon = Icons.Default.Email, onClick = { uriHandler.openUri("https://donate.placeholder.org") })
                         }
                     }
                 }
