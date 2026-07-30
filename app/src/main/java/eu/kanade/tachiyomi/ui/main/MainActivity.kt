@@ -29,6 +29,7 @@ import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.navigationBars
 import androidx.compose.foundation.layout.only
 import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.windowInsetsBottomHeight
 import androidx.compose.foundation.layout.windowInsetsPadding
 import androidx.compose.foundation.rememberScrollState
@@ -271,8 +272,23 @@ class MainActivity : BaseActivity() {
                                 contentAlignment = androidx.compose.ui.Alignment.Center,
                                 modifier = Modifier
                                     .fillMaxSize()
-                                    .background(androidx.compose.ui.graphics.Color.Black),
+                                    .background(androidx.compose.ui.graphics.Color(0xFF0A0A0A)),
                             ) {
+                                // Subtle neon red glow
+                                Box(
+                                    modifier = Modifier
+                                        .size(280.dp)
+                                        .background(
+                                            androidx.compose.ui.graphics.Brush.radialGradient(
+                                                colors = listOf(
+                                                    androidx.compose.ui.graphics.Color(0xFFFF1E1E).copy(alpha = 0.25f),
+                                                    androidx.compose.ui.graphics.Color.Transparent,
+                                                ),
+                                            ),
+                                            shape = androidx.compose.foundation.shape.CircleShape,
+                                        ),
+                                )
+
                                 // Phase 1: Logo — NO enter animation (windowBackground already shows it)
                                 androidx.compose.animation.AnimatedVisibility(
                                     visible = splashPhase == 1,
