@@ -245,78 +245,56 @@ class MainActivity : BaseActivity() {
                             )
                         }
 
-                        // ── Two-phase splash: Logo → Text ──────────────────
-                        // Phase 0 = hidden, 1 = logo, 2 = text
-                        var splashPhase by remember { mutableStateOf(if (isLaunch) 1 else 0) }
+                        // ── Video Boot-Up Splash Screen ───────────────────
+                        var showSplash by remember { mutableStateOf(isLaunch) }
                         if (isLaunch) {
                             LaunchedEffect(Unit) {
-                                // Phase 1: show logo for 1.4 s
-                                kotlinx.coroutines.delay(1400)
-                                // Phase 2: crossfade to text logo
-                                splashPhase = 2
-                                kotlinx.coroutines.delay(1400)
-                                // Done: hide everything
-                                splashPhase = 0
+                                // Safety timer matching video duration (4.0s)
+                                kotlinx.coroutines.delay(4200)
+                                showSplash = false
                             }
                         }
 
                         androidx.compose.animation.AnimatedVisibility(
-                            visible = splashPhase > 0,
+                            visible = showSplash,
                             enter = androidx.compose.animation.EnterTransition.None,
                             exit = androidx.compose.animation.fadeOut(
                                 animationSpec = androidx.compose.animation.core.tween(600),
                             ),
                         ) {
                             Box(
-                                contentAlignment = androidx.compose.ui.Alignment.Center,
+                                contentAlignment = Alignment.Center,
                                 modifier = Modifier
                                     .fillMaxSize()
                                     .background(androidx.compose.ui.graphics.Color.Black),
                             ) {
-                                // Phase 1: Logo — NO enter animation (windowBackground already shows it)
-                                androidx.compose.animation.AnimatedVisibility(
-                                    visible = splashPhase == 1,
-                                    enter = androidx.compose.animation.EnterTransition.None,
-                                    exit = androidx.compose.animation.fadeOut(
-                                        animationSpec = androidx.compose.animation.core.tween(400),
-                                    ) + androidx.compose.animation.scaleOut(
-                                        targetScale = 1.08f,
-                                        animationSpec = androidx.compose.animation.core.tween(400),
-                                    ),
-                                ) {
-                                    androidx.compose.foundation.Image(
-                                        painter = androidx.compose.ui.res.painterResource(eu.kanade.tachiyomi.R.drawable.ic_splash_logo),
-                                        contentDescription = null,
-                                        contentScale = androidx.compose.ui.layout.ContentScale.Fit,
-                                        modifier = Modifier.fillMaxSize(),
-                                    )
+                                val context = LocalContext.current
+                                val videoUri = remember {
+                                    android.net.Uri.parse("android.resource://${context.packageName}/${eu.kanade.tachiyomi.R.raw.splash_video}")
                                 }
 
-                                // Phase 2: MangaVerse text — bouncy spring in
-                                androidx.compose.animation.AnimatedVisibility(
-                                    visible = splashPhase == 2,
-                                    enter = androidx.compose.animation.fadeIn(
-                                        animationSpec = androidx.compose.animation.core.tween(500),
-                                    ) + androidx.compose.animation.scaleIn(
-                                        initialScale = 0.90f,
-                                        animationSpec = androidx.compose.animation.core.spring(
-                                            dampingRatio = androidx.compose.animation.core.Spring.DampingRatioMediumBouncy,
-                                            stiffness = androidx.compose.animation.core.Spring.StiffnessMediumLow,
-                                        ),
-                                    ),
-                                    exit = androidx.compose.animation.fadeOut(
-                                        animationSpec = androidx.compose.animation.core.tween(600),
-                                    ),
-                                ) {
-                                    androidx.compose.foundation.Image(
-                                        painter = androidx.compose.ui.res.painterResource(eu.kanade.tachiyomi.R.drawable.ic_splash_text),
-                                        contentDescription = null,
-                                        contentScale = androidx.compose.ui.layout.ContentScale.Fit,
-                                        modifier = Modifier
-                                            .fillMaxSize()
-                                            .padding(horizontal = 20.dp),
-                                    )
-                                }
+                                androidx.compose.ui.viewinterop.AndroidView(
+                                    factory = { ctx ->
+                                        android.widget.VideoView(ctx).apply {
+                                            setVideoURI(videoUri)
+                                            setOnCompletionListener {
+                                                showSplash = false
+                                            }
+                                            setOnErrorListener { _, _, _ ->
+                                                showSplash = false
+                                                true
+                                            }
+                                            setOnPreparedListener { mp ->
+                                                mp.isLooping = false
+                                                try {
+                                                    mp.setVideoScalingMode(android.media.MediaPlayer.VIDEO_SCALING_MODE_SCALE_TO_FIT_WITH_CROPPING)
+                                                } catch (_: Exception) {}
+                                                start()
+                                            }
+                                        }
+                                    },
+                                    modifier = Modifier.fillMaxSize(),
+                                )
                             }
                         }
                     }
